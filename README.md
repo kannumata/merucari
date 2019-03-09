@@ -13,20 +13,6 @@
 |birthyear|string|null: false|
 |birthmonth|string|null: false|
 |birthday|string|null: false|
-|postal|string|null: false|
-|prefecture|string|null: false|
-|city|string|null: false|
-|adress|string|null: false|
-|building|string|null: false|
-|seller|reference|null: false, foreign_key: true|
-|buyer|reference|null: false, foreign_key: true|
-|todo|reference|null: false, foreign_key: true|
-|notification|reference|null: false, foreign_key: true|
-|comment|reference|null: false, foreign_key: true|
-|like|reference|null: false, foreign_key: true|
-|review|reference|null: false, foreign_key: true|
-|point|reference|foreign_key: true|
-|trade|reference|null: false, foreign_key: true|
 
 ### Association
 - has_many :trade
@@ -40,6 +26,17 @@
 
 
 
+## Adressテーブル
+|postal|string|null: false|
+|prefecture|string|null: false|
+|city|string|null: false|
+|adress|string|null: false|
+|building|string|null: false|
+
+- belongs_to :user
+
+
+
 ## Trades（中間テーブル）
 |Column|Type|Options|
 |------|----|-------|
@@ -50,6 +47,7 @@
 
 ### Association
 - has_many: items, through: orders
+- has_many: orders
 - belongs_to :users
 
 
@@ -77,16 +75,6 @@
 |prefecture|integer|null: false|
 |shipping_day|integer|null: false|
 |status|integer|null: false|
-|price|integer|null: false, foreign_key: true|
-|user|reference|null: false, foreign_key: true|
-|category|reference|null: false, foreign_key: true|
-|brand|reference|foreign_key: true|
-|prefecture|reference|null: false, foreign_key: true|
-|like|reference|foreign_key: true|
-|comment|reference|null: false, foreign_key: true|
-|saler|reference|null: false, foreign_key: true|
-|buyer|reference|null: false, foreign_key: true|
-|order|reference|null: false, foreign_key: true|
 
 ### Association
 - has_many :seller
