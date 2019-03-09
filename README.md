@@ -13,8 +13,12 @@
 |birthyear|string|null: false|
 |birthmonth|string|null: false|
 |birthday|string|null: false|
-|sales_price|string|null: false|
-|saler|reference|null: false, foreign_key: true|
+|postal|string|null: false|
+|prefecture|string|null: false|
+|city|string|null: false|
+|adress|string|null: false|
+|building|string|null: false|
+|seller|reference|null: false, foreign_key: true|
 |buyer|reference|null: false, foreign_key: true|
 |todo|reference|null: false, foreign_key: true|
 |notification|reference|null: false, foreign_key: true|
@@ -22,12 +26,11 @@
 |like|reference|null: false, foreign_key: true|
 |review|reference|null: false, foreign_key: true|
 |point|reference|foreign_key: true|
+|trade|reference|null: false, foreign_key: true|
 
 ### Association
-- has_many :saler
-- has_many :buyer
-- has_many :items, thorough: salers
-- has_many :items, thorough: buyers
+- has_many :trade
+- has_many :items, thorough: trade
 - has_many :todos
 - has_many :notifications
 - has_many :comments
@@ -37,34 +40,34 @@
 
 
 
-## Salersテーブル（中間テーブル）
+## Trades（中間テーブル）
 |Column|Type|Options|
 |------|----|-------|
 |user|reference|null: false, foreign_key: true|
-|item|reference|null: false, foreign_key: true|
+|buyer|reference|null: false, foreign_key: { to_table: :users }|
+|seller|reference|null: false, foreign_key: { to_table: :users }|
+|order|reference|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :user
-- belongs_to :item
+- has_many: items, through: orders
+- belongs_to :users
 
 
-
-## Buyersテーブル（中間テーブル）
+## Orders（中間テーブル）
 |Column|Type|Options|
 |------|----|-------|
-|user|reference|null: false, foreign_key: true|
+|trade|reference|null: false, foreign_key: true|
 |item|reference|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :user
 - belongs_to :item
+- belongs_to :trade
 
 
 
 ## Itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image|string|null: false|
 |name|string|null: false|
 |description|text|null: false|
 |size|integer|
@@ -73,7 +76,8 @@
 |shipping_way|integer|null: false|
 |prefecture|integer|null: false|
 |shipping_day|integer|null: false|
-|price|reference|null: false, foreign_key: true|
+|status|integer|null: false|
+|price|integer|null: false, foreign_key: true|
 |user|reference|null: false, foreign_key: true|
 |category|reference|null: false, foreign_key: true|
 |brand|reference|foreign_key: true|
@@ -82,11 +86,12 @@
 |comment|reference|null: false, foreign_key: true|
 |saler|reference|null: false, foreign_key: true|
 |buyer|reference|null: false, foreign_key: true|
+|order|reference|null: false, foreign_key: true|
 
 ### Association
-- has_many :saler
+- has_many :seller
 - has_many :buyer
-- has_many :users, through: saler
+- has_many :users, through: seller
 - has_many :users, through: buyer
 - has_many :prices
 - has_many :categories
@@ -94,6 +99,7 @@
 - has_many :prefectures
 - has_many :likes
 - has_many :comments
+- has_many :orders
 
 
 
@@ -134,17 +140,6 @@
 
 
 
-## Pricesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|price|integer|null: false|
-|item|reference|null: false, foreign_key: true|
-
-### Association
-- belongs_to :item
-
-
-
 ## Brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -152,6 +147,7 @@
 |item|reference|null: false, foreign_key: true|
 
 ### Association
+- has_many :images
 - belongs_to :item
 
 
@@ -163,8 +159,19 @@
 |item|reference|null: false, foreign_key: true|
 
 ### Association
--has_many: small_categories
+- has_many: small_categories
 - belongs_to :item
+
+
+## Imagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|body|string|null: false|
+|item|reference|null: false, foreign_key: true|
+
+### Association
+- belongs_to :item
+
 
 
 ## Small_categoriesテーブル
