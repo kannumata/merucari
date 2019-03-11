@@ -27,6 +27,8 @@
 
 
 ## Adressテーブル
+|Column|Type|Options|
+|------|----|-------|
 |postal|string|null: false|
 |prefecture|string|null: false|
 |city|string|null: false|
