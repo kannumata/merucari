@@ -51,4 +51,5 @@ production:
   <<: *default
   database: merucari_production
   username: merucari
-  password: <%= ENV['MERUCARI_DATABASE_PASSWORD'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
