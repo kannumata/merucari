@@ -23,6 +23,7 @@
 - has_many :likes
 - has_many :reviews
 - has_many :points
+- has_one :adress
 
 
 
