@@ -1,0 +1,27 @@
+current directory: /Users/numakanta/projects/merucari/vendor/bundle/ruby/2.3.0/gems/puma-3.12.0/ext/puma_http11
+/Users/numakanta/.rbenv/versions/2.3.1/bin/ruby -r ./siteconf20190330-37068-1mqkikr.rb extconf.rb
+Ignoring raindrops-0.19.0 because its extensions are not built.  Try: gem pristine raindrops --version 0.19.0
+Ignoring unicorn-5.4.1 because its extensions are not built.  Try: gem pristine unicorn --version 5.4.1
+checking for BIO_read() in -lcrypto... yes
+checking for SSL_CTX_new() in -lssl... yes
+checking for openssl/bio.h... yes
+creating Makefile
+
+To see why this extension failed to compile, please check the mkmf.log which can be found here:
+
+  /Users/numakanta/projects/merucari/vendor/bundle/ruby/2.3.0/extensions/x86_64-darwin-18/2.3.0-static/puma-3.12.0/mkmf.log
+
+current directory: /Users/numakanta/projects/merucari/vendor/bundle/ruby/2.3.0/gems/puma-3.12.0/ext/puma_http11
+make "DESTDIR=" clean
+
+current directory: /Users/numakanta/projects/merucari/vendor/bundle/ruby/2.3.0/gems/puma-3.12.0/ext/puma_http11
+make "DESTDIR="
+compiling io_buffer.c
+compiling mini_ssl.c
+compiling puma_http11.c
+compiling http11_parser.c
+linking shared-object puma/puma_http11.bundle
+
+current directory: /Users/numakanta/projects/merucari/vendor/bundle/ruby/2.3.0/gems/puma-3.12.0/ext/puma_http11
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 puma_http11.bundle ./.gem.20190330-37068-kmtudm/puma
