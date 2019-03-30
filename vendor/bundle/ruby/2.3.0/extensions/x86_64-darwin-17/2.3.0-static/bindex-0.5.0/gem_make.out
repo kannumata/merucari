@@ -1,0 +1,15 @@
+current directory: /Users/numakanta/projects/merucari/vendor/bundle/ruby/2.3.0/gems/bindex-0.5.0/ext/bindex
+/Users/numakanta/.rbenv/versions/2.3.1/bin/ruby -r ./siteconf20190326-97276-1ga3j4w.rb extconf.rb
+creating Makefile
+
+current directory: /Users/numakanta/projects/merucari/vendor/bundle/ruby/2.3.0/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR=" clean
+
+current directory: /Users/numakanta/projects/merucari/vendor/bundle/ruby/2.3.0/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR="
+compiling cruby.c
+linking shared-object bindex/cruby.bundle
+
+current directory: /Users/numakanta/projects/merucari/vendor/bundle/ruby/2.3.0/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.bundle ./.gem.20190326-97276-69fssz/bindex
