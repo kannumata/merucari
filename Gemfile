@@ -63,11 +63,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 group :production do
   gem 'unicorn', '5.4.1'
 end
-<<<<<<< HEAD
 gem 'devise'
 gem 'erb2haml'
-
-=======
-gem 'erb2haml'
 gem "font-awesome-rails"
->>>>>>> origin/making-front
