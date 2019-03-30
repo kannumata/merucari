@@ -96,14 +96,20 @@ GEM
       temple (>= 0.8.0)
       tilt
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> origin/making-front
     haml-rails (1.0.0)
       actionpack (>= 4.0.1)
       activesupport (>= 4.0.1)
       haml (>= 4.0.6, < 6.0)
       html2haml (>= 1.0.1)
       railties (>= 4.0.1)
+<<<<<<< HEAD
 >>>>>>> hamlの導入
+=======
+>>>>>>> origin/making-front
     html2haml (2.2.0)
       erubis (~> 2.7.0)
       haml (>= 4.0, < 6)
